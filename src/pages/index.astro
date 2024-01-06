@@ -1,9 +1,12 @@
 ---
 import Profile from '../components/Profile/Component.astro';
 import Layout from '../layouts/Layout.astro';
+
+const description = `Your cute smarty pone programmer!, see my profile pwease :3`;
+const keywords = "Shawny profile";
 ---
 
-<Layout title="shawny">
+<Layout {description} {keywords}>
   <Profile />
 </Layout>
 
