@@ -1,0 +1,119 @@
+---
+import Contact from "./Contact.astro";
+import Description from "./Description.astro";
+---
+
+<div class="profile">
+
+  <img src="/shawny.png" alt="shawny-pfp">
+
+  <div class="block">
+    <input type="radio" name="profile-block" id="input-description" hidden checked>
+    <input type="radio" name="profile-block" id="input-contact" hidden>
+    
+    <div class="slider">
+      <Description />
+      <Contact />
+    </div>
+    
+  </div>
+  
+</div>
+
+<style lang="scss" is:global>
+  .profile .slider > * {
+    width: 100%;
+    padding: 20px;
+  }
+</style>
+
+<style lang="scss">
+  @import "src/scss/glob";
+
+  .profile {
+    display: flex;
+    margin: auto;
+
+    .block {
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      padding: 0;
+      transition: width 0.5s $trans-func;
+      
+      @include gt-xs {
+        width: 550px;
+
+        &:has(#input-contact:checked) {
+          width: 420px;
+        }
+      }
+      
+    }
+
+    .slider {
+      display: flex;
+      align-items: center;
+      transition: transform 0.5s $trans-func;
+      overflow: hidden;
+      width: 200%;
+      transform: translate(0%);
+    }
+
+    #input-description:checked~.slider {
+      transform: translate(0%, 0%);
+    }
+
+    #input-contact:checked~.slider {
+      transform: translate(-50%, 0%);
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    h4 {
+      margin-bottom: 0;
+    }
+
+    img {
+      border-radius: $radius;
+      width: 300px;
+      height: 300px;
+      margin-right: 20px;
+    }
+
+    @include lt-md {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      
+      .block {
+        min-height: 260px;
+        width: 560px;
+      }
+
+      img {
+        margin-right: 0px;
+        margin-bottom: 20px;
+      }
+    }
+
+    @include xs {
+      max-height: 100%;
+      width: 100%;
+
+      .block {
+        width: 100%;
+      }
+      
+      img {
+        height: auto;
+        width: 100%;
+        max-width: 300px;
+      }
+
+    }
+  }
+</style>

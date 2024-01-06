@@ -1,0 +1,88 @@
+@import "glob";
+
+@keyframes rainbow {
+  from {
+    background-position: 0% 0%;
+  }
+
+  to {
+    background-position: 0% 100%;
+  }
+}
+
+@mixin rainbow {
+  background-image: linear-gradient(#ff0000, #ff00ff, #0000ff, #00ffff, #00ff00, #ffff00, #ff0000) !important;
+  animation: rainbow 2s linear infinite;
+  background-size: 100% 500px;
+}
+
+.rainbow {
+  @include rainbow;
+}
+
+.rainbow-text {
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  @include rainbow;
+}
+
+a.rainbow-text::after {
+  @include rainbow;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: 2px;
+}
+
+
+.block {
+  background-color: $bg-block;
+  border-radius: $radius;
+  padding: $block-padding;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@for $i from 1 through 6 {
+  .block h#{7 - $i}:first-of-type {
+    margin-top: 0;
+  }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: $bg;
+  color: white;
+  font-family: monospace;
+  padding: 40px;
+  box-sizing: border-box;
+  font-size: 18px;
+
+  @include lt-md {
+    padding: 20px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: $main;
+}
+
+a {
+  color: $main;
+  text-decoration: underline !important;
+  cursor: pointer;
+}

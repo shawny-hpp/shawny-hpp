@@ -1,0 +1,64 @@
+
+<div class="contact">
+  <h2>Contact me :3</h2>
+  <div class="socials">
+    <b>Discord</b>shawny_x3<br>
+    <b>Matrix</b>@shawny:cutefunny.art<br>
+    <b>XMPP</b>shawny@macaw.me<br>
+    <b>Mastodon</b>@shawny@equestria.social<br>
+  </div>
+  <br>
+  <label for="input-description"><a><b>Back</b></a></label>
+</div>
+
+<style lang="scss">
+  @import "src/scss/glob";
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    .socials b::after {
+      content: ": ";
+    }
+
+    @include xs {
+      width: 100%;
+
+      .socials b {
+        display: block;
+        margin-top: 10px;
+      }
+      .socials b::after {
+        content: "";
+      }
+    }
+
+    // table {
+    //   margin-bottom: 20px;
+
+    //   tr {
+    //     td {
+    //       &:nth-child(1) { 
+    //         text-align: left;
+    //         font-weight: bold;
+    //       }
+    //       &:nth-child(2) { 
+    //         text-align: left; 
+    //       }
+    //       @include lt-md {
+    //         &:nth-child(1) { 
+    //           width: 50%;
+    //           text-align: right;
+    //         }
+    //         &:nth-child(2) { 
+    //           width: 50%;
+    //           text-align: left; 
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+  }
+</style>
