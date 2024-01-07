@@ -20,6 +20,7 @@ const { title = "Shawny", description = "", keywords = "" } = Astro.props;
     <meta name="keywords" content=`Shawny, shawny-x3, shawny dev, shawny pony, shawny mlp ${keywords}`>
     <meta name="author" content="Shawny">
     <meta name="description" content={description}>
+    <slot name="header"/>
 		<title>{title}</title>
 	</head>
 	<body>
